@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kursovaya", "kursovaya\kursovaya.vcxproj", "{8BA7D550-8C96-4A2F-B48A-2613201FD16D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dinamyc_lib", "dinamyc_lib\dinamyc_lib.vcxproj", "{1C4035AE-92C4-44FE-B824-AB722A87300F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{8BA7D550-8C96-4A2F-B48A-2613201FD16D}.Release|x64.Build.0 = Release|x64
 		{8BA7D550-8C96-4A2F-B48A-2613201FD16D}.Release|x86.ActiveCfg = Release|Win32
 		{8BA7D550-8C96-4A2F-B48A-2613201FD16D}.Release|x86.Build.0 = Release|Win32
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Debug|x64.ActiveCfg = Debug|x64
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Debug|x64.Build.0 = Debug|x64
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Debug|x86.ActiveCfg = Debug|Win32
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Debug|x86.Build.0 = Debug|Win32
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Release|x64.ActiveCfg = Release|x64
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Release|x64.Build.0 = Release|x64
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Release|x86.ActiveCfg = Release|Win32
+		{1C4035AE-92C4-44FE-B824-AB722A87300F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

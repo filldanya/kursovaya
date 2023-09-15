@@ -1,299 +1,17 @@
 #include <iostream>
-class Ground
+#include "Vehicle.h"
+#include "Eagle.h"
+#include "Broomstick.h"
+#include "Magic_carpet.h"
+#include "All_terrain_boots.h"
+#include "Centaur.h"
+#include "Fast_camel.h"
+#include "Camel.h"
+#include "Air.h"
+#include "Ground.h"
+std::string* check_vehicle(Vehicle* vehicle, std::string* arr, int* x)
 {
-public:
-	virtual std::string get_name()
-	{
-		return "name";
-	}
-	virtual int race(int dis)
-	{
-		return 0;
-	}
-};
-class Air
-{
-public:
-	virtual std::string get_name()
-	{
-		return "name";
-	}
-	virtual int race(double dis)
-	{
-		return 0;
-	}
-};
-class Camel : public Ground
-{
-private:
-	int speed = 10;
-	int rest = 30;
-	std::string name = "Верблюд";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(int dis) override
-	{
-		int time = 0;
-		time = dis / speed;
-		if (time > rest)
-		{
-			int a = time / rest;
-			if (time % rest != 0)
-			{
-				a++;
-			}
-			for (int i = 0; i < a - 1; i++)
-			{
-				if (a == 1)
-				{
-					time += 5;
-					return time;
-				}
-				{
-
-					if (a != 1)
-					{
-						if (i == 0)
-						{
-							time += 5;
-						}
-						else
-						{
-							time += 8;
-						}
-					}
-				}
-			}
-		}
-		return time;
-	}
-};
-class Fast_camel : public Ground
-{
-private:
-	int speed = 40;
-	int rest = 10;
-	std::string name = "Верблюд-быстроход";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(int dis) override
-	{
-		int time = 0;
-		time = dis / speed;
-		if (time > rest)
-		{
-			int a = time / rest;
-			if (time % rest != 0)
-			{
-				a++;
-			}
-			for (int i = 0; i < a - 1; i++)
-			{
-				if (a == 1)
-				{
-					time += 5;
-					return time;
-				}
-				if (a == 2)
-				{
-					if (i == 0)
-					{
-						time += 5;
-					}
-					else
-					{
-						time += 6, 5;
-					}
-				}
-				{
-
-					if (a >= 3)
-					{
-						if (i == 0)
-						{
-							time += 5;
-						}
-						else if (i == 1)
-						{
-							time += 6, 5;
-						}
-						else
-						{
-							time += 8;
-						}
-					}
-				}
-			}
-		}
-		return time;
-	}
-};
-class Centaur : public Ground
-{
-private:
-	int speed = 15;
-	int rest = 8;
-	std::string name = "Кентавр";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(int dis) override
-	{
-		int time = 0;
-		time = dis / speed;
-		if (time > rest)
-		{
-			int a = time / rest;
-			if (time % rest != 0)
-			{
-				a++;
-			}
-			for (int i = 0; i < a - 1; i++)
-			{
-				time += 2;
-			}
-		}
-		return time;
-	}
-};
-class All_terrain_boots : public Ground
-{
-private:
-	int speed = 6;
-	int rest = 60;
-	std::string name = "Ботинки-вездеходы";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(int dis) override
-	{
-		int time = 0;
-		time = dis / speed;
-		if (time > rest)
-		{
-			int a = time / rest;
-			if (time % rest != 0)
-			{
-				a++;
-			}
-			for (int i = 0; i < a - 1; i++)
-			{
-				if (a == 1)
-				{
-					time += 10;
-					return time;
-				}
-				{
-
-					if (a != 1)
-					{
-						if (i == 0)
-						{
-							time += 10;
-						}
-						else
-						{
-							time += 5;
-						}
-					}
-				}
-			}
-		}
-		return time;
-	}
-};
-class Magic_carpet : public Air
-{
-private:
-	int speed = 10;
-	std::string name = "Ковёр-самолёт";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(double dis) override
-	{
-		int time = 0;
-		if (dis < 1000)
-		{
-			return time = dis / speed;
-
-		}
-		else if (dis >= 1000 && dis < 5000)
-		{
-			dis *= 0.97;
-			return time = dis / speed;
-		}
-		else if (dis >= 5000 && dis < 10000)
-		{
-			dis *= 0.9;
-			return time = dis / speed;
-		}
-		else
-		{
-			dis *= 0.95;
-			return time = dis / speed;
-		}
-	}
-};
-class Eagle : public Air
-{
-private:
-	int speed = 8;
-	std::string name = "Орёл";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(double dis) override
-	{
-		int time = 0;
-		dis *= 0.94;
-		return time = time = dis / speed;;
-	}
-};
-class Broomstick : public Air
-{
-private:
-	int speed = 20;
-	std::string name = "Метла";
-public:
-	std::string get_name() override
-	{
-		return name;
-	}
-	int race(double dis) override
-	{
-		int time = 0;
-		int tmp = dis;
-		double tmp_d = 0;
-		tmp /= 1000;
-		tmp_d = tmp / 100.0;
-		dis *= 1 - tmp_d;
-		return time = dis / speed;
-	}
-};
-std::string* check_ground(Ground* ground, std::string* arr, int* x)
-{
-	arr[*x] = ground->get_name();
-	(*x)++;
-	return arr;
-}
-std::string* check_air(Air* air, std::string* arr, int* x)
-{
-	arr[*x] = air->get_name();
+	arr[*x] = vehicle->get_name();
 	(*x)++;
 	return arr;
 }
@@ -309,43 +27,20 @@ void print_choose()
 	std::cout << "0. Закончить регистрацию" << std::endl;
 	std::cout << "Выберите транспорт или 0 для окончания процесса регистрации: ";
 }
-void registration_ground(int size, std::string* arr, Ground* ground, int* t, std::string* arrr, int* x)
+void registration_vehicle(int size, std::string* arr, Vehicle* vehicle, int* t, std::string* arrr, int* x)
 {
 	for (int i = 0; i < size; i++)
 	{
-		if (arr[i] == ground->get_name())
+		if (arr[i] == vehicle->get_name())
 		{
-			std::cout << "Транспортное средство " << ground->get_name() << " уже зарегестрировано" << std::endl;
+			std::cout << "Транспортное средство " << vehicle->get_name() << " уже зарегестрировано" << std::endl;
 			*t = 1;
 		}
 	}
 	if (*t != 1)
 	{
-		arrr = check_ground(ground, arr, x);
-		std::cout << "Транспортное средство " << ground->get_name() << " успешно зарегестрировано" << std::endl;
-		std::cout << "Зарегестрированные транспортные средства: ";
-		for (int i = 0; i < *x; i++)
-		{
-			std::cout << arrr[i] << ", ";
-		}
-		std::cout << std::endl;
-	}
-	*t = 0;
-}
-void registration_air(int size, std::string* arr, Air* air, int* t, std::string* arrr, int* x)
-{
-	for (int i = 0; i < size; i++)
-	{
-		if (arr[i] == air->get_name())
-		{
-			std::cout << "Транспортное средство " << air->get_name() << " уже зарегестрировано" << std::endl;
-			*t = 1;
-		}
-	}
-	if (*t != 1)
-	{
-		arrr = check_air(air, arr, x);
-		std::cout << "Транспортное средство " << air->get_name() << " успешно зарегестрировано" << std::endl;
+		arrr = check_vehicle(vehicle, arr, x);
+		std::cout << "Транспортное средство " << vehicle->get_name() << " успешно зарегестрировано" << std::endl;
 		std::cout << "Зарегестрированные транспортные средства: ";
 		for (int i = 0; i < *x; i++)
 		{
@@ -445,9 +140,9 @@ int main()
 				{
 				case 1:
 				{
-					All_terrain_boots boots;
+					All_terrain_boots boots(6, 60, "Ботинки вездеходы");
 					ar[x] = boots.race(distance);
-					registration_ground(size, arr, &boots, &t, arrr, &x);
+					registration_vehicle(size, arr, &boots, &t, arrr, &x);
 					break;
 				}
 				case 2:
@@ -457,16 +152,16 @@ int main()
 				}
 				case 3:
 				{
-					Camel camel;
+					Camel camel(10, 30, "Верблюд");
 					ar[x] = camel.race(distance);
-					registration_ground(size, arr, &camel, &t, arrr, &x);
+					registration_vehicle(size, arr, &camel, &t, arrr, &x);
 					break;
 				}
 				case 4:
 				{
-					Centaur centaur;
+					Centaur centaur(15, 8, "Кентавр");
 					ar[x] = centaur.race(distance);
-					registration_ground(size, arr, &centaur, &t, arrr, &x);
+					registration_vehicle(size, arr, &centaur, &t, arrr, &x);
 					break;
 				}
 				case 5:
@@ -476,9 +171,9 @@ int main()
 				}
 				case 6:
 				{
-					Fast_camel fast_camel;
+					Fast_camel fast_camel(40, 10, "Верблюд-быстроход");
 					ar[x] = fast_camel.race(distance);
-					registration_ground(size, arr, &fast_camel, &t, arrr, &x);
+					registration_vehicle(size, arr, &fast_camel, &t, arrr, &x);
 					break;
 				}
 				case 7:
@@ -546,9 +241,9 @@ int main()
 				}
 				case 2:
 				{
-					Broomstick broomstick;
+					Broomstick broomstick(20, "Метла");
 					ar[x] = broomstick.race(distance);
-					registration_air(size, arr, &broomstick, &t, arrr, &x);
+					registration_vehicle(size, arr, &broomstick, &t, arrr, &x);
 					break;
 				}
 				case 3:
@@ -563,9 +258,9 @@ int main()
 				}
 				case 5:
 				{
-					Eagle eagle;
+					Eagle eagle(8, "Орел");
 					ar[x] = eagle.race(distance);
-					registration_air(size, arr, &eagle, &t, arrr, &x);
+					registration_vehicle(size, arr, &eagle, &t, arrr, &x);
 					break;
 				}
 				case 6:
@@ -575,9 +270,9 @@ int main()
 				}
 				case 7:
 				{
-					Magic_carpet magic_carpet;
+					Magic_carpet magic_carpet(10, "Ковер-самолет");
 					ar[x] = magic_carpet.race(distance);
-					registration_air(size, arr, &magic_carpet, &t, arrr, &x);
+					registration_vehicle(size, arr, &magic_carpet, &t, arrr, &x);
 					break;
 				}
 				case 0:
@@ -635,51 +330,51 @@ int main()
 				{
 				case 1:
 				{
-					All_terrain_boots boots;
+					All_terrain_boots boots(6, 60, "Ботинки вездеходы");
 					ar[x] = boots.race(distance);
-					registration_ground(size, arr, &boots, &t, arrr, &x);
+					registration_vehicle(size, arr, &boots, &t, arrr, &x);
 					break;
 				}
 				case 2:
 				{
-					Broomstick broomstick;
+					Broomstick broomstick(20, "Метла");
 					ar[x] = broomstick.race(distance);
-					registration_air(size, arr, &broomstick, &t, arrr, &x);
+					registration_vehicle(size, arr, &broomstick, &t, arrr, &x);
 					break;
 				}
 				case 3:
 				{
-					Camel camel;
+					Camel camel(10, 30, "Верблюд");
 					ar[x] = camel.race(distance);
-					registration_ground(size, arr, &camel, &t, arrr, &x);
+					registration_vehicle(size, arr, &camel, &t, arrr, &x);
 					break;
 				}
 				case 4:
 				{
-					Centaur centaur;
+					Centaur centaur(15, 8, "Кентавр");
 					ar[x] = centaur.race(distance);
-					registration_ground(size, arr, &centaur, &t, arrr, &x);
+					registration_vehicle(size, arr, &centaur, &t, arrr, &x);
 					break;
 				}
 				case 5:
 				{
-					Eagle eagle;
+					Eagle eagle(8, "Орел");
 					ar[x] = eagle.race(distance);
-					registration_air(size, arr, &eagle, &t, arrr, &x);
+					registration_vehicle(size, arr, &eagle, &t, arrr, &x);
 					break;
 				}
 				case 6:
 				{
-					Fast_camel fast_camel;
+					Fast_camel fast_camel(40, 10, "Верблюд-быстроход");
 					ar[x] = fast_camel.race(distance);
-					registration_ground(size, arr, &fast_camel, &t, arrr, &x);
+					registration_vehicle(size, arr, &fast_camel, &t, arrr, &x);
 					break;
 				}
 				case 7:
 				{
-					Magic_carpet magic_carpet;
+					Magic_carpet magic_carpet(10, "Ковер-самолет");
 					ar[x] = magic_carpet.race(distance);
-					registration_air(size, arr, &magic_carpet, &t, arrr, &x);
+					registration_vehicle(size, arr, &magic_carpet, &t, arrr, &x);
 					break;
 				}
 				case 0:
