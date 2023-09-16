@@ -1,7 +1,11 @@
 #pragma once
 #include <iostream>
 #include "Ground.h"
-
+#ifdef DINAMLIBRACE_EXPORTS
+#define MATHPOWERLIBRARY_API __declspec(dllexport)
+#else
+#define MATHPOWERLIBRARY_API __declspec(dllimport)
+#endif
 class Fast_camel : public Ground
 {
 private:
@@ -9,7 +13,7 @@ private:
 	int rest = 0;
 	std::string name;
 public:
-	Fast_camel(int speed, int rest, std::string name);
-	std::string const get_name() override;
-	int race(double dis) override;
+	MATHPOWERLIBRARY_API Fast_camel(int speed, int rest, std::string name);
+	MATHPOWERLIBRARY_API std::string const get_name() override;
+	MATHPOWERLIBRARY_API int race(double dis) override;
 };
